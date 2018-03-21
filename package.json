@@ -4,7 +4,7 @@
   "description": "A Serverless v1.0 plugin to build your C# lambda functions on deploy.",
   "main": "index.js",
   "author": "Michael Tsibelman",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/tsibelman/serverless-multi-dotnet.git"
