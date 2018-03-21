@@ -1,12 +1,21 @@
 # Serverless DotNet
 
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
-[![npm version](https://badge.fury.io/js/serverless-dotnet.svg)](https://badge.fury.io/js/serverless-dotnet)
-[![license](https://img.shields.io/npm/l/serverless-dotnet.svg)](https://www.npmjs.com/package/serverless-dotnet)
+[![npm version](https://badge.fury.io/js/serverless-multi-dotnet.svg)](https://badge.fury.io/js/serverless-mult-dotnet)
+[![license](https://img.shields.io/npm/l/serverless-multi-dotnet.svg)](https://www.npmjs.com/package/serverless-multi-dotnet)
 
-A Serverless v1.0 plugin to pack your C# lambda functions on deploy.
+A Serverless plugin to pack all your C# lambdas functions that are spread to multiple CS projects.
 
-This plugin is for you if you don't want to have to run `dotnet restore`, `dotnet publish` and zip the output manually every time you want to deploy.
+This plugin will go over all of your functions that have .net core 2.0 runtime defined in `serverless.yml` file take the value from package.artifact
+Split the value on first path separator and use first part of a string as location for a cs project folder and the rest as a path for a file. 
+
+So for example your have function with value like this:
+
+```
+package:
+ artifact: functionproject-folder/publish/deploy-package.zip
+```
+It equivalent to executing: cd functionproject-folder and dotnet lambda package -o publish/deploy-package.zip
 
 ## Install
 
@@ -21,11 +30,6 @@ plugins:
   - serverless-multi-dotnet
 ```
 
-And that's all there is to it. From this point, `dotnet restore` and `dotnet publish` will run as part of each `serverless deploy` run and the output will be zipped into the `.serverless` folder of your service, as it would for other runtimes.
-
 ## Note
-If you are using the `aws-csharp` service template, you will need to remove the following line from your `serverless.yml` file as these are not needed any more:
-```
-package:
- artifact: bin/Release/netcoreapp1.0/publish/deploy-package.zip
-```
+This work is based on @fruffin [serverless-dotnet plugin](https://github.com/fruffin/serverless-dotnet)
+
