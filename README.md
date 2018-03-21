@@ -17,6 +17,8 @@ package:
 ```
 It equivalent to executing: cd functionproject-folder and dotnet lambda package -o publish/deploy-package.zip
 
+If you want to execute serverless deploy with no repacking of C# projects, you should add --nopack option
+
 ## Install
 
 ```
