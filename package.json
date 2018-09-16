@@ -1,6 +1,6 @@
 {
   "name": "serverless-multi-dotnet",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "description": "A Serverless plugin to pack lambdas in multiple C# projects using dotnen lambda package command.",
   "main": "index.js",
   "author": "Michael Tsibelman",
@@ -9,7 +9,13 @@
     "type": "git",
     "url": "git://github.com/tsibelman/serverless-multi-dotnet.git"
   },
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "bluebird": "^3.4.6"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
   }
 }
