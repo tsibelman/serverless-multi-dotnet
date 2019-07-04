@@ -3,6 +3,7 @@
 const BbPromise = require('bluebird');
 const pack = require('./lib/pack');
 const getPackingInfo = require('./lib/pack');
+const funcRuntimeIsDotNet = require('./lib/pack');
 
 class ServerlessDotNet {
   constructor(serverless, options) {
@@ -13,11 +14,12 @@ class ServerlessDotNet {
       
       Object.assign( this, pack );
       Object.assign( this, getPackingInfo );
+      Object.assign( this, funcRuntimeIsDotNet )
 
       this.hooks = {
         'after:deploy:createDeploymentArtifacts': () => BbPromise.bind(this).then(this.pack)
       };
-    }
+    } 
   }
 }
 
