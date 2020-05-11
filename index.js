@@ -17,7 +17,7 @@ class ServerlessDotNet {
       Object.assign( this, funcRuntimeIsDotNet )
 
       this.hooks = {
-        'after:deploy:createDeploymentArtifacts': () => BbPromise.bind(this).then(this.pack)
+        'package:createDeploymentArtifacts': () => BbPromise.bind(this).then(this.pack)
       };
     } 
   }
