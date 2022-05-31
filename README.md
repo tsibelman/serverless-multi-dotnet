@@ -18,6 +18,10 @@ package:
 ```
 It equivalent to going into functionproject-folder and executing dotnet lambda package -o publish/deploy-package.zip
 
+If you want to execute serverless deploy for dotnet 6, you should add to serverless.yml: provider.runtime=dotnet6
+
+If you want to execute serverless deploy for arm64 architecture, you should add to serverless.yml: provider.architecture=arm64
+
 If you want to execute serverless deploy with no repacking of C# projects, you should add --nopack option
 
 As of version 0.9, the plugin now supports supplying a projectFolder setting for scenarios when a more complex folder structure is needed. 
