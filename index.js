@@ -9,14 +9,6 @@ class ServerlessDotNet {
   constructor(serverless, options) {
     this.serverless = serverless;
     this.options = options;
-    // console.log(options);
-    // console.log(getPackingInfo);
-    // console.log(serverless);
-    // console.log(options);
-    // options[""]
-    // getPackingInfo.newOptions = options;
-    // pack.newOptions = options;
-    console.log(options)    
     if (!options["nopack"]) {      
       Object.assign(this, pack);
       Object.assign(this, getPackingInfo);
