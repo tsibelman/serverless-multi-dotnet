@@ -9,7 +9,8 @@ class ServerlessDotNet {
   constructor(serverless, options) {
     this.serverless = serverless;
     this.options = options;
-    if (!options["nopack"]) {      
+    //Allow for serverless deploy --param="nopack" in sls > v3 
+    if (!options["nopack"] || !options.param?.includes('nopack')) {      
       Object.assign(this, pack);
       Object.assign(this, getPackingInfo);
       Object.assign(this, funcRuntimeIsDotNet);            
